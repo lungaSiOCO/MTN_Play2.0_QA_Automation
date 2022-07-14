@@ -6,7 +6,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Glob_HudPage extends BasePage{
+public class  Glob_HudPage extends BasePage{
 
     @FindBy(xpath = "//*[@data-testid='universalPlus']")
     public WebElement universalPlusIcon;

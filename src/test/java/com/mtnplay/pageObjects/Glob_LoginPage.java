@@ -22,11 +22,11 @@ public class Glob_LoginPage extends BasePage {
     public void OpenPage() throws Exception {
 
         if (System.getProperty("env").equals("dev")) {
-            webDriver.get("http://app.dev.mtnplay.com/");
-            System.out.println("Opening - http://app.dev.mtnplay.com/");
+            webDriver.get("https://www.sovtech.co.za/contact-us");
+            System.out.println("Opening - https://www.sovtech.co.za/contact-us");
         }else if (System.getProperty("env").equals("sit")) {
-            webDriver.get("http://app.dev.mtnplay.com/");
-            System.out.println("Opening - http://app.dev.mtnplay.com/");
+            webDriver.get("https://www.sovtech.co.za/contact-us");
+            System.out.println("Opening - https://www.sovtech.co.za/contact-us");
         }
 
     }

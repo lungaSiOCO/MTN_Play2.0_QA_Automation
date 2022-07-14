@@ -61,12 +61,13 @@ public class Steps {
     public MyPlay_Screen_View_SubscriptionPage myPlay_screen_view_subscriptionPage;
     public Unsubscribe_ContentPage unsubscribe_contentPage;
 
+
     private String readPropertiesFile() {
 
         Properties prop = new Properties();
         try {
 
-            InputStream input = new FileInputStream("C:\\Users\\lunga.shibani\\Documents\\Lunga_Work(MTN)\\api-testing-rest-assured-java-framework-master\\application.properties");
+            InputStream input = new FileInputStream("C:\\Users\\lunga.shibani\\Desktop\\MTN_Play2.0_QA_Automation\\application.properties");
             prop.load(input);
             System.out.println(prop.getProperty("CHROME_DRIVER"));
 
@@ -78,7 +79,7 @@ public class Steps {
 
     @Before
     public void doSomethingBefore(Scenario scenario) {
-        if(System.getProperty("env") == null){
+        if(System.getProperty("env") == "sit"){
             System.setProperty("env", "sit");
         }
         System.out.println("Environment set to: " + System.getProperty("env"));
@@ -100,6 +101,7 @@ public class Steps {
         full_searchFunctionalityPage = new Full_SearchFunctionalityPage(driver, wait);
         myPlay_screen_view_subscriptionPage = new MyPlay_Screen_View_SubscriptionPage(driver, wait);
         unsubscribe_contentPage = new Unsubscribe_ContentPage(driver, wait);
+
     }
 
     @After
@@ -299,8 +301,12 @@ public class Steps {
 
     @When("User navigates to the My Play Screen and filters content")
     public void user_navigates_to_the_my_play_screen_and_filters_content() {
-        wait.until(ExpectedConditions.visibilityOf(myPlay_filterContent.btnMyPlay));
-        myPlay_filterContent.btnMyPlay.click();
+//        wait.until(ExpectedConditions.visibilityOf(myPlay_filterContent.btnMyPlay));
+//        myPlay_filterContent.btnMyPlay.click();
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        WebElement elem = driver.findElement(By.xpath("//span[contains(text(), 'my play')]"));
+        JavascriptExecutor exec = (JavascriptExecutor)driver;
+        exec.executeScript("arguments[0].click();", elem);
 
 //        wait.until(ExpectedConditions.visibilityOf(myPlay_filterContent.btnPurchases));
         myPlay_filterContent.btnPurchases.click();
@@ -505,10 +511,7 @@ public class Steps {
 
 //        wait.until(ExpectedConditions.visibilityOf(unsubscribe_contentPage.btnConfirm));
 //        unsubscribe_contentPage.btnConfirm.click();
-
-
     }
-
 
 }
 
