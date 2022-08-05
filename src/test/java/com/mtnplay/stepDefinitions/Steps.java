@@ -154,12 +154,12 @@ public class Steps {
 
         String baseURL = null;
         String clientID = null;
-        if(System.getProperty("env").equals("dev")){
-            baseURL = "https://www.ilabquality.com";
-            clientID = "0bb1fef9-57a1-4b5d-809b-8e8d873f79d9";
+        if(System.getProperty("env").equals("sit")){
+            baseURL = "http://app.sit.mtnplay.com/";
+            clientID = "";
         } else if (System.getProperty("env").equals("dev")) {
-            baseURL = "https://www.ilabquality.com";
-            clientID = "d13f746b-1ce3-4897-9b07-a73f78809fda";
+            baseURL = "http://app.dev.mtnplay.com/";
+            clientID = "";
         }
         RestAssured.baseURI = baseURL;
         Response response =
@@ -185,9 +185,9 @@ public class Steps {
     public void iHaveDeletedCandidateWithTheFamilyName(String familyName) {
         String baseURL = null;
         if(System.getProperty("env").equals("sit")){
-            baseURL = "https://apisit.digitalzenith.io";
+            baseURL = "http://app.sit.mtnplay.com/";
         } else if (System.getProperty("env").equals("dev")) {
-            baseURL = "https://apidev.digitalzenith.io";
+            baseURL = "http://app.dev.mtnplay.com/";
         }
 
         // This class is ued to create the GraphQL Query needed to seach for all Candidates with a specific family name
