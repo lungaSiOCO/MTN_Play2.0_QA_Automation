@@ -130,8 +130,8 @@ public class Steps {
         THIS IS JUST FOR EXPERIMENTAL PURPOSES
      */
 
-    @Given("I have opened the App.dev page")
-    public void i_have_opened_the_app_dev_page() throws Exception{
+    @Given("I have opened the App.sit page")
+    public void i_have_opened_the_app_sit_page() throws Exception{
         glob_loginPage.OpenPage();
     }
 
